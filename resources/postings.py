@@ -104,3 +104,4 @@ api.add_resource(
     Posting,
     '/postings/<int:id>',
     endpoint='posting'
+)

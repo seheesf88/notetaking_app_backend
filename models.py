@@ -5,11 +5,10 @@ from peewee import *
 DATABASE = SqliteDatabase('notedb.sqlite')
 
 
-class Posts(Model):
+class Posting(Model):
     title = CharField()
     content = CharField()
     username = CharField()
-    created_by = ForeignKeyField(User, related_name='posts_set', null=True)
     created_at = DateTimeField(default=datetime.datetime.now)
 
     class Meta:
@@ -20,5 +19,5 @@ class Posts(Model):
 
 def initialize():
     DATABASE.connect()
-    DATABASE.create_tables([Posts], safe=True)
+    DATABASE.create_tables([Posting], safe=True)
     DATABASE.close()
