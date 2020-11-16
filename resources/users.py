@@ -112,7 +112,7 @@ class Login(Resource):
     @marshal_with(user_fields)
     def post(self):
         args = self.reqparse.parse_args()
-
+        print('here')
         try:
             user = models.User.get(models.User.username == args["username"])
         except models.DoesNotExist:
