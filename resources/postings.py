@@ -13,6 +13,9 @@ postings_fields = {
     'username': fields.String,
  }
 
+# posting = [
+#   {'id': 1, 'title': 'Hello, World!', 'content': 'My first note!', 'username': 'sehee'},
+# ]
 
 def posting_or_404(posting_id):
     try:
@@ -49,6 +52,7 @@ class PostingList(Resource):
     # @login_required
     def get(self):
         postings = [marshal(posting, postings_fields) for posting in models.Posting.select()]
+        postings.append({'id': 0, 'title': 'Hello, World!', 'content': 'My first note!', 'username': 'sehee'})
         return {'postings' : postings}
 
     @marshal_with(postings_fields)
