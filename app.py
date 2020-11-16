@@ -1,9 +1,9 @@
 from flask import Flask
+from flask_cors import CORS
+from flask_login import LoginManager
 from resources.postings import postings_api
 from resources.users import users_api
 
-from flask_cors import CORS
-from flask_login import LoginManager
 login_manager = LoginManager()
 
 import models
